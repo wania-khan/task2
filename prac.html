@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grid</title>
+<style>
+   .grid-container{
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+    padding: 10px;
+    gap: 1px 1px;
+    width: 50%;
+    margin: auto;
+}
+
+.grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff9900;    
+    border: 1px solid #cc9900;
+    cursor: pointer;
+    font-family: Georgia;
+    font-size: xx-small;
+}
+</style>
+</head>
+<body>
+
+<div class="grid-container">
+  <div class="grid-item" onclick="enterDigit(1)">1</div>
+  <div class="grid-item" onclick="enterDigit(2)">2</div>
+  <div class="grid-item" onclick="enterDigit(3)">3</div>
+  <div class="grid-item" onclick="enterDigit(4)">4</div>
+  <div class="grid-item" onclick="enterDigit(5)">5</div>
+  <div class="grid-item" onclick="enterDigit(6)">6</div>
+  <div class="grid-item" onclick="enterDigit(7)">7</div>
+  <div class="grid-item" onclick="enterDigit(8)">8</div>
+  <div class="grid-item" onclick="enterDigit(9)">9</div>
+</div>
+
+<script>
+let clicks = 0;
+let pin = '';
+
+function enterDigit(digit) {
+  if (clicks < 4) {
+    pin += digit;
+    clicks++;
+
+    if (clicks == 4) {
+      checkPin();
+    }
+  }
+}
+
+function checkPin() {
+  if (pin == '3421') {
+    alert('Welcome! Your pin is correct.');
+  } else {
+    alert('Your pin is incorrect.');
+  }
+  location.reload(); 
+}
+</script>
+
+</body>
+</html>
